@@ -14,10 +14,21 @@ namespace myTests
         }
 
         [Theory]
-        [InlineDataAttribute(89,89, 89)]
-        [InlineDataAttribute(-40789,-40789, -40789)]
-        [InlineDataAttribute(275,275, 275)]
+        [InlineData(89,89, 89)]
+        [InlineData(-40789,-40789, -40789)]
+        [InlineData(275,275, 275)]
         public void ReturnValueWhenValueOfOperandsSame(int value1, int value2, int expectedResult)
+        {
+            var actualResult = _mathHelper.Max(value1, value2);
+
+            Assert.Equal(actualResult, expectedResult);
+        }
+
+        [Theory]
+        [InlineData(1,2,2)]
+        [InlineData(-789,-52,-52)]
+        [InlineData(7000,275,7000)]
+        public void ReturnMaxOfTwoDifferentValues(int value1, int value2, int expectedResult)
         {
             var actualResult = _mathHelper.Max(value1, value2);
 
