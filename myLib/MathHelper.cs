@@ -6,9 +6,9 @@ namespace myLib
     {
         public int Max(int x, int y)
         {
-            if (x == 0 && y == 0)
+            if (x == y)
             {
-                return 0;
+                return x;
             }
             throw new NotImplementedException("Write a test!");
         }
